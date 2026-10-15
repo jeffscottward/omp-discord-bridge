@@ -1,0 +1,12 @@
+#!/bin/sh
+# Mail is allowed from Discord runs when the bot config has an "smtp" host. The sandbox reaches that
+# host's port 587 through the bridge's tunnel on 127.0.0.1:2587 (/etc/hosts maps the SMTP host name to
+# 127.0.0.1), so rewrite the port.
+url=$(sed -n 's/^[[:space:]]*set[[:space:]]\{1,\}smtp_url[[:space:]]*=[[:space:]]*"\(.*\)".*/\1/p' "$HOME/.muttrc" 2>/dev/null | head -n 1)
+self=$(dirname "$(readlink -f "$0")")
+PATH=$(printf '%s' "$PATH" | tr ':' '\n' | grep -vxF "$self" | paste -sd: -)
+export PATH
+if [ -n "$url" ]; then
+  exec neomutt -e "set smtp_url=\"$(printf '%s' "$url" | sed 's/:587\//:2587\//')\"" -e "set header_cache=/tmp/.mutt-hc" -e "set message_cachedir=/tmp/.mutt-mc" -e "set copy=no" "$@"
+fi
+exec neomutt "$@"

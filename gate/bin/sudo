@@ -1,0 +1,4 @@
+#!/bin/sh
+# Discord runs have no_new_privs: sudo cannot work here. Point at the password-gated broker instead.
+echo "sudo: not available in a Discord run (no privileges). Ask the owner: omp-approve --reason '<why>' -- '<exact sudo command>'" >&2
+exit 1

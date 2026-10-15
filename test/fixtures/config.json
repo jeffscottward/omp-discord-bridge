@@ -1,0 +1,19 @@
+{
+  "ownerId": "100000001",
+  "guildId": "200000002",
+  "channels": {
+    "300000001": { "name": "general", "cwd": "~/Github" },
+    "300000002": { "name": "projecta", "cwd": "~/Github/project-a" },
+    "300000003": { "name": "projectb", "cwd": "~/Github/project-b" },
+    "300000004": { "name": "dev", "cwd": "~/Github" }
+  },
+  "alertChannels": { "400000001": { "name": "omp-alerts" }, "400000002": { "name": "voice-transcript" } },
+  "devChannelId": "400000001",
+  "voice": { "channelId": "500000001", "transcriptChannelId": "400000002", "fallbackChannelId": "300000001" },
+  "mirror": { "categories": { "rig": "600000001", "mac": "600000002", "archive": "600000003" }, "macSshHost": null },
+  "firstmate": { "pane": "wB:p3D", "tabLabel": "FIRSTMATE" },
+  "heeler": { "host": "rig", "redirect": "https://heeler.example.test/open" },
+  "egress": { "denyIps": ["203.0.113.7"], "denyHostSuffixes": ["blocked.example"] },
+  "smtp": { "host": "smtp.example.test", "port": 587 },
+  "hostLabel": "rig"
+}

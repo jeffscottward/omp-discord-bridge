@@ -1,0 +1,36 @@
+{
+  "ownerId": "<your Discord user id>",
+  "guildId": "<your private server id>",
+  "channels": {
+    "<general channel id>": { "name": "general", "cwd": "~/Github" },
+    "<project channel id>": { "name": "my-project", "cwd": "~/Github/my-project" }
+  },
+  "alertChannels": {
+    "<alerts channel id>": { "name": "omp-alerts" },
+    "<voice transcript channel id>": { "name": "voice-transcript" }
+  },
+  "devChannelId": "<alerts channel id>",
+  "dmCwd": "~/Github",
+  "voice": {
+    "channelId": "<voice channel id>",
+    "transcriptChannelId": "<voice transcript channel id>",
+    "fallbackChannelId": "<general channel id>"
+  },
+  "mirror": {
+    "categories": { "rig": "<category id for this machine's panes>", "mac": "<category id for the second machine's panes>", "archive": "<archive category id>" },
+    "macSshHost": null
+  },
+  "firstmate": { "pane": "<herdr pane id, e.g. w1:p1>", "tabLabel": "FIRSTMATE" },
+  "workingEmoji": "⚙️",
+  "heeler": { "host": "rig", "redirect": "https://heeler-link.example.com/open" },
+  "egress": { "denyIps": [], "denyHostSuffixes": [] },
+  "smtp": { "host": "smtp.example.com", "port": 587 },
+  "services": {
+    "bot": "omp-discord-bot.service",
+    "tts": "omp-tts.service",
+    "whisper": "omp-whisper.service"
+  },
+  "restartable": ["bot", "tts", "whisper"],
+  "pingHosts": { "Gateway": "1.1.1.1" },
+  "hostLabel": "rig"
+}

@@ -1,0 +1,11 @@
+{
+  // Copy to wrangler.jsonc, fill in your account and domain, then: cd heeler-link && bunx wrangler deploy
+  // Point the bot at it with "heeler": { "redirect": "https://<your domain>/open" } in config.json.
+  "name": "heeler-link",
+  "main": "worker.js",
+  "compatibility_date": "2026-10-01",
+  "account_id": "<your Cloudflare account id>",
+  "workers_dev": false,
+  "routes": [{ "pattern": "heeler-link.example.com", "custom_domain": true }],
+  "observability": { "enabled": false }
+}

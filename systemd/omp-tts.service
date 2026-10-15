@@ -1,0 +1,15 @@
+[Unit]
+Description=Local Kokoro TTS for omp-discord-bot replies (model kept loaded on the GPU)
+After=default.target
+
+[Service]
+Type=simple
+WorkingDirectory=%h/Github/tools/omp-discord-bot
+Environment=PATH=%h/.local/bin:%h/.local/share/mise/shims:/usr/local/bin:/usr/bin:/bin
+ExecStart=%h/Github/tools/kokoro-tts/.venv/bin/python scripts/tts_server.py
+Restart=on-failure
+RestartSec=20
+Nice=5
+
+[Install]
+WantedBy=default.target

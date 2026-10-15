@@ -1,0 +1,16 @@
+[Unit]
+Description=omp Discord bridge (owner-only messages -> omp -p agent runs, replies in threads)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+WorkingDirectory=%h/Github/tools/omp-discord-bot
+Environment=PATH=%h/.local/bin:%h/.local/share/mise/shims:/usr/local/bin:/usr/bin:/bin
+ExecStart=%h/.local/share/mise/shims/bun src/main.ts
+Restart=on-failure
+RestartSec=15
+TimeoutStopSec=30
+
+[Install]
+WantedBy=default.target

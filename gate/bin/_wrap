@@ -1,0 +1,3 @@
+#!/bin/sh
+# In-sandbox wrapper: hands the call to gate/cli.ts (host-exec broker or the real binary).
+exec "${OMP_GATE_BUN:-bun}" "${OMP_GATE_HOME:-$(dirname "$(readlink -f "$0")")/..}/cli.ts" "$(basename "$0")" "$@"
